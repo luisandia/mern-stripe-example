@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "project example: NodeJS, React, Redux, Express, and MongoDB.",
   "main": "index.js",
-  "engines":{
-    "node":"8.1.1",
-    "npm":"5.0.3"
+  "engines": {
+    "node": "8.1.1",
+    "npm": "5.0.3"
   },
   "scripts": {
-    "start":"node index.js"
+    "start": "node ./app/index.js",
+    "dev": "nodemon ./app/index.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,8 @@
   "homepage": "https://github.com/luisandia/mern-stripe-example#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }
