@@ -1,8 +1,16 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
+require('./models/User');
 require('./services/passport');
-
 const app = express();
 require('./routes/authRoutes')(app);
+
+
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true }, (err, res) => {
+    if (err) throw err;
+    console.log("Db Online");
+});
 
 app.get('/', (req, res) => {
     res.send({ hi: 'there' });
