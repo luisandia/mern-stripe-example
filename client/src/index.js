@@ -1,4 +1,4 @@
-import'materialize-css/dist/css/materialize.min.css';
+import 'materialize-css/dist/css/materialize.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -8,8 +8,18 @@ import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import reducers from './reducers';
 import reduxThunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+let store;
+if (process.env.NODE_ENV === 'development') {
+
+    const composeEnhancers = composeWithDevTools({
+        // Specify name here, actionsBlacklist, actionsCreators and other options if needed
+    });
+    store = createStore(reducers, {}, composeEnhancers(applyMiddleware(reduxThunk)));
+} else {
+    store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+}
 
 ReactDOM.render(
     <Provider store={store}>
