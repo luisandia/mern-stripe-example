@@ -6,7 +6,8 @@ services:
       context: .
     ports:
       - "5000:5000"
+      - "3000:3000"
     volumes:
-      - /server/node_modules
       - ./server:/server
+      - ./client:/client
     command: npm run dev
