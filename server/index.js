@@ -28,9 +28,18 @@ mongoose.connect(keys.mongoURI, { useNewUrlParser: true }, (err, res) => {
     console.log("Db Online");
 });
 
-app.get('/', (req, res) => {
-    res.send({ hi: 'there' });
-});
+if (process.env.NODE_ENV === 'production') {
+    /*express will serve rup production assets e.g main.js, main.css */
+
+    app.use(express.static('../client/build'));
+
+    // express will serve up index.html if doesnt reconize the route
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+} else {
+
+}
 
 const PORT = process.env.PORT || 5000
 
