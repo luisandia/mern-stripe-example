@@ -31,7 +31,7 @@ mongoose.connect(keys.mongoURI, { useNewUrlParser: true }, (err, res) => {
 if (process.env.NODE_ENV === 'production') {
     /*express will serve rup production assets e.g main.js, main.css */
 
-    app.use(express.static('../client/build'));
+    app.use(express.static('client/build'));
 
     // express will serve up index.html if doesnt reconize the route
     const path = require('path');
