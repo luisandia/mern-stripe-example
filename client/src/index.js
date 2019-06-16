@@ -8,11 +8,10 @@ import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import reducers from './reducers';
 import reduxThunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
 
 let store;
 if (process.env.NODE_ENV === 'development') {
-
+    const { composeWithDevTools } = require('redux-devtools-extension');
     const composeEnhancers = composeWithDevTools({
         // Specify name here, actionsBlacklist, actionsCreators and other options if needed
     });
