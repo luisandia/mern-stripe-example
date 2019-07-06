@@ -5,6 +5,7 @@ const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 
 
