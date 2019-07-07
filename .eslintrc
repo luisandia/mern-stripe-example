@@ -1,0 +1,18 @@
+{
+  "env": {
+    "node": true,
+    "es6": true,
+    "mocha": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 9
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "semi": ["error", "always"],
+    "no-console": "off"
+  }
+}
