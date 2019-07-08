@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchSurveys } from '../../actions';
-
+import {Link} from 'react-router-dom'
 class SurveyList extends Component {
     componentDidMount() {
         this.props.fetchSurveys();
@@ -21,8 +21,8 @@ class SurveyList extends Component {
                         </p>
                     </div>
                     <div className="card-action">
-                        <a>Yes: {survey.yes}</a>
-                        <a>No: {survey.no}</a>
+                        <Link>Yes: {survey.yes}</Link>
+                        <Link>No: {survey.no}</Link>
                     </div>
                 </div>
             );
